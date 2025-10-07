@@ -1,14 +1,23 @@
 'use client'
 
+import { useMemo } from 'react'
 import { APP_LINKS } from '@/constants'
 import { motion } from 'framer-motion'
 import { ArrowRight, Play, Star } from 'lucide-react'
 
 interface HeroProps {
-  scrollY: number
+  scrollY?: number
 }
 
-export default function Hero({ scrollY }: HeroProps) {
+export default function Hero({ scrollY = 0 }: HeroProps)
+{
+  // Calculate transform values safely for SSR
+  const transformStyle = useMemo(() =>
+  {
+    const rotateX = Math.max(0, -8 + (scrollY * 0.02))
+    const rotateY = Math.max(0, 4 - (scrollY * 0.01))
+    return `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+  }, [scrollY])
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -195,7 +204,7 @@ export default function Hero({ scrollY }: HeroProps) {
                 style={{
                   width: '90vw',
                   maxWidth: '1200px',
-                  transform: `Cortiq(1000px) rotateX(${Math.max(0, -8 + (scrollY * 0.02))}deg) rotateY(${Math.max(0, 4 - (scrollY * 0.01))}deg)`,
+                  transform: transformStyle,
                   transformStyle: 'preserve-3d',
                   transition: 'transform 0.1s ease-out'
                 }}

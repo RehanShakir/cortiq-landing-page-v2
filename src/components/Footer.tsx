@@ -3,8 +3,9 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { ArrowRight, Globe, Twitter, Linkedin, Github, Mail } from 'lucide-react'
+import { ArrowRight, Mail } from 'lucide-react'
 import { APP_LINKS } from '@/constants'
+import Image from 'next/image'
 
 // Discord Logo Component
 const DiscordIcon = ({ className }: { className?: string }) => (
@@ -22,36 +23,36 @@ export default function Footer() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
-  const footerLinks = {
-    product: [
-      { label: 'Features', href: '#' },
-      { label: 'Integrations', href: '#' },
-      { label: 'Pricing', href: '#' },
-      { label: 'API', href: '#' },
-      { label: 'Security', href: '#' },
-    ],
-    solutions: [
-      { label: 'For Teams', href: '#' },
-      { label: 'For Enterprise', href: '#' },
-      { label: 'For Startups', href: '#' },
-      { label: 'Use Cases', href: '#' },
-      { label: 'Case Studies', href: '#' },
-    ],
-    resources: [
-      { label: 'Documentation', href: '#' },
-      { label: 'Blog', href: '#' },
-      { label: 'Templates', href: '#' },
-      { label: 'Community', href: '#' },
-      { label: 'Help Center', href: '#' },
-    ],
-    company: [
-      { label: 'About', href: '#' },
-      { label: 'Careers', href: '#' },
-      { label: 'Press', href: '#' },
-      { label: 'Contact', href: '#' },
-      { label: 'Partners', href: '#' },
-    ],
-  }
+  // const footerLinks = {
+  //   product: [
+  //     { label: 'Features', href: '#' },
+  //     { label: 'Integrations', href: '#' },
+  //     { label: 'Pricing', href: '#' },
+  //     { label: 'API', href: '#' },
+  //     { label: 'Security', href: '#' },
+  //   ],
+  //   solutions: [
+  //     { label: 'For Teams', href: '#' },
+  //     { label: 'For Enterprise', href: '#' },
+  //     { label: 'For Startups', href: '#' },
+  //     { label: 'Use Cases', href: '#' },
+  //     { label: 'Case Studies', href: '#' },
+  //   ],
+  //   resources: [
+  //     { label: 'Documentation', href: '#' },
+  //     { label: 'Blog', href: '#' },
+  //     { label: 'Templates', href: '#' },
+  //     { label: 'Community', href: '#' },
+  //     { label: 'Help Center', href: '#' },
+  //   ],
+  //   company: [
+  //     { label: 'About', href: '#' },
+  //     { label: 'Careers', href: '#' },
+  //     { label: 'Press', href: '#' },
+  //     { label: 'Contact', href: '#' },
+  //     { label: 'Partners', href: '#' },
+  //   ],
+  // }
 
   const socialLinks = [
     // { icon: Twitter, href: '#', label: 'Twitter' },
@@ -133,9 +134,11 @@ export default function Footer() {
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <a href="#" className="flex items-center mb-4">
-                <img 
+                    <Image 
                   src="/logo.png" 
                   alt="Cortiq Logo" 
+                      width={144}
+                      height={48}
                   className="h-12 w-auto"
                 />
               </a>

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { APP_LINKS } from '@/constants'
+import Image from 'next/image'
 
 interface HeaderProps {
   isScrolled: boolean
@@ -93,9 +94,11 @@ export default function Header({ isScrolled }: HeaderProps) {
               transition={{ type: 'spring', stiffness: 300 }}
             >
               <a href="#" className="flex items-center">
-                <img 
+                <Image 
                   src="/logo.png" 
                   alt="Cortiq Logo" 
+                  width={120}
+                  height={40}
                   className="h-10 w-auto"
                 />
               </a>
@@ -212,9 +215,11 @@ export default function Header({ isScrolled }: HeaderProps) {
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b border-gray-700/50">
                   <div className="flex items-center">
-                    <img 
+                    <Image 
                       src="/logo.png" 
                       alt="Cortiq Logo" 
+                      width={96}
+                      height={32}
                       className="h-8 w-auto"
                     />
                   </div>

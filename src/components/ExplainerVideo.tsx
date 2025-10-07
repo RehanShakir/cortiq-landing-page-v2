@@ -2,14 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
-import { Play, Pause } from 'lucide-react'
+import { useRef } from 'react'
 import { APP_LINKS } from '@/constants'
 
 export default function ExplainerVideo() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const [isPlaying, setIsPlaying] = useState(false)
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -33,10 +31,6 @@ export default function ExplainerVideo() {
     },
   }
 
-  const handlePlayToggle = () => {
-    setIsPlaying(!isPlaying)
-  }
-
   return (
     <section id="how-it-works" className="py-24 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,7 +50,7 @@ export default function ExplainerVideo() {
               Watch how creators go from idea → viral script → published short in minutes.
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Cortiq doesn't just write — it predicts what performs.
+              Cortiq doesn&apos;t just write — it predicts what performs.
             </p>
           </motion.div>
 
@@ -71,10 +65,7 @@ export default function ExplainerVideo() {
                 className="relative w-full max-w-7xl mx-auto px-4"
                 style={{
                   width: '90vw',
-                  maxWidth: '1200px',
-                  transform: `Cortiq(1000px) rotateX(${Math.max(0, -8 + (scrollY * 0.02))}deg) rotateY(${Math.max(0, 4 - (scrollY * 0.01))}deg)`,
-                  transformStyle: 'preserve-3d',
-                  transition: 'transform 0.1s ease-out'
+                  maxWidth: '1200px'
                 }}
               >
                 {/* Video Frame */}
