@@ -213,10 +213,13 @@ export default function Hero({ scrollY = 0 }: HeroProps)
                 <div className="relative bg-white rounded-3xl p-1 shadow-2xl border border-gray-200">
                   {/* Loom Video Embed */}
                   <div className="relative w-full aspect-video rounded-xl overflow-hidden" >
-                    <iframe
-                        src="https://www.loom.com/embed/82749cb3c84c4a128df20e375c37a664?sid=bf98a452-bc3a-49d9-a53f-0d04adbe489a&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true&autoplay=true&loop=1"
-                        allowFullScreen
-                      className="w-full h-full"
+                      <video
+                        src="/hero.mp4"
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                     />
                   </div>
                 </div>
